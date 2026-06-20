@@ -41,7 +41,7 @@ body{
     width:100%;
     max-width:700px;
 
-    margin-top:20px;
+    margin-top:10px;
 }
 
 .convite-img{
@@ -112,16 +112,22 @@ body{
 
 .contador{
 
-    margin-top:8px;
+    margin-top:12px;
 
     text-align:center;
+
+    padding:0 15px
 }
 
 .contador h2{
 
     color:#2e7d32;
 
-    margin-bottom:15px;
+    font-size:26px;
+
+    margin-bottom:12px;
+
+    font-weight:700;
 }
 
 .countdown{
@@ -141,23 +147,23 @@ body{
 
     color:white;
 
-    border-radius:15px;
+    border-radius:18px;
 
-    min-width:85px;
+    min-width:80px;
 
-    padding:12px;
+    padding:10px 12px;
 
     box-shadow:
-    0 5px 15px rgba(0,0,0,.15);
+    0 6px 15px rgba(0,0,0,.12);
 }
 
 .time-box span{
 
     display:block;
 
-    font-size:30px;
+    font-size:28px;
 
-    font-weight:bold;
+    font-weight:700;
 }
 
 .music-btn{
@@ -192,17 +198,47 @@ body{
 
 .rodape{
 
-    margin:30px 0;
+    margin:18px 0 30px 0;
 
     color:#2e7d32;
 
-    font-weight:bold;
+    font-size:14px;
+
+    font-weight:500;
 
     text-align:center;
+
+    opacity:.8;
 }
 
 @media(max-width:700px){
 
+    .contador h2{
+
+    font-size:18px;
+}
+
+.time-box{
+
+    min-width:70px;
+
+    padding:8px;
+}
+
+.time-box span{
+
+    font-size:22px;
+}
+
+.music-btn{
+
+    width:55px;
+
+    height:55px;
+
+    font-size:22px;
+}
+    
     .btn-confirmar{
 
         width:24%;
@@ -230,7 +266,9 @@ body{
 
 <body>
 
-<audio id="musica" autoplay loop>
+<div style="height:10px;"></div>
+
+<audio id="musica" loop preload="auto">
     <source src="dinossauro.mp3" type="audio/mpeg">
 </audio>
 
@@ -303,13 +341,14 @@ body{
 </div>
 
 <div class="rodape">
-🦖 Esperamos você para celebrar o primeiro aninho do Ravi!
+Feito com muito carinho para celebrar o primeiro aninho do Ravi 🦖💚
 </div>
 
 <button
  class="music-btn"
- onclick="toggleMusica()">
-🎵 </button>
+ onclick="toggleMusica()"
+ title="Música">
+🔊 </button>
 
 <script>
 
@@ -335,9 +374,13 @@ function toggleMusica(){
 
         musica.play();
 
+        decument.querySelector('.music-btn').innerHTML = '🔊';
+
     }else{
 
         musica.pause();
+        
+        decument.querySelector('.music-btn').innerHTML = '🔇';
 
     }
 
