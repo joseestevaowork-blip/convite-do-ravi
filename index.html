@@ -1,16 +1,12 @@
 <!DOCTYPE html>
 
 <html lang="pt-BR">
+
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>Ravi - 1 Aninho 🦖</title>
-
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
-<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&display=swap" rel="stylesheet">
 
 <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.3/dist/confetti.browser.min.js"></script>
 
@@ -23,133 +19,207 @@
 }
 
 body{
-    font-family:'Fredoka',sans-serif;
     background:linear-gradient(
         180deg,
-        #7ed6ff 0%,
-        #bff3ff 30%,
-        #d8ffd6 100%
+        #8fd3f4 0%,
+        #d6f5d6 100%
     );
-    overflow-x:hidden;
-}
 
-.hero{
-    width:100%;
-    max-width:900px;
-    margin:auto;
-    padding:20px;
-}
+    font-family:Arial, sans-serif;
 
-.hero img{
-    width:100%;
-    display:block;
-    border-radius:35px;
-    box-shadow:0 20px 50px rgba(0,0,0,.25);
-}
+    min-height:100vh;
 
-.contador-container{
-    max-width:900px;
-    margin:0 auto 30px auto;
-    padding:0 20px;
-    text-align:center;
-}
-
-.contador-container h2{
-    color:#2e7d32;
-    margin-bottom:20px;
-    font-size:32px;
-}
-
-.countdown{
-    display:flex;
-    justify-content:center;
-    gap:15px;
-    flex-wrap:wrap;
-}
-
-.time-box{
-    background:#4caf50;
-    color:white;
-    padding:18px;
-    border-radius:20px;
-    min-width:120px;
-    box-shadow:0 8px 20px rgba(0,0,0,.15);
-}
-
-.time-box span{
-    display:block;
-    font-size:42px;
-    font-weight:bold;
-}
-
-.acoes{
-    max-width:900px;
-    margin:0 auto 50px auto;
     display:flex;
     flex-direction:column;
     align-items:center;
-    gap:25px;
-    padding:0 20px;
 }
 
-.botao-img{
+.convite-wrapper{
+
+    position:relative;
+
     width:100%;
-    max-width:500px;
-    cursor:pointer;
-    transition:all .25s ease;
+    max-width:700px;
+
+    margin-top:20px;
 }
 
-.botao-img:hover{
-    transform:scale(1.04);
+.convite-img{
+
+    width:100%;
+    display:block;
+
+    border-radius:25px;
+
+    box-shadow:
+    0 15px 40px rgba(0,0,0,.25);
 }
 
-.botao-img:active{
-    transform:scale(.98);
+/* BOTÃO CONFIRMAR */
+
+.btn-confirmar{
+
+    position:absolute;
+
+    width:23%;
+
+    left:29%;
+
+    bottom:20.5%;
 }
 
-.music-toggle{
-    position:fixed;
-    bottom:20px;
-    right:20px;
-    width:70px;
-    height:70px;
-    border:none;
-    border-radius:50%;
-    background:#ff9800;
+/* BOTÃO NÃO */
+
+.btn-nao{
+
+    position:absolute;
+
+    width:23%;
+
+    left:51.5%;
+
+    bottom:20.5%;
+}
+
+/* BOTÃO LOCALIZAÇÃO */
+
+.btn-local{
+
+    position:absolute;
+
+    width:28%;
+
+    left:36%;
+
+    bottom:6%;
+}
+
+.btn-confirmar img,
+.btn-nao img,
+.btn-local img{
+
+    width:100%;
+
+    transition:.25s;
+}
+
+.btn-confirmar:hover img,
+.btn-nao:hover img,
+.btn-local:hover img{
+
+    transform:scale(1.05);
+}
+
+.contador{
+
+    margin-top:25px;
+
+    text-align:center;
+}
+
+.contador h2{
+
+    color:#2e7d32;
+
+    margin-bottom:15px;
+}
+
+.countdown{
+
+    display:flex;
+
+    gap:10px;
+
+    flex-wrap:wrap;
+
+    justify-content:center;
+}
+
+.time-box{
+
+    background:#4caf50;
+
     color:white;
-    font-size:28px;
+
+    border-radius:15px;
+
+    min-width:85px;
+
+    padding:12px;
+
+    box-shadow:
+    0 5px 15px rgba(0,0,0,.15);
+}
+
+.time-box span{
+
+    display:block;
+
+    font-size:30px;
+
+    font-weight:bold;
+}
+
+.music-btn{
+
+    position:fixed;
+
+    right:20px;
+
+    bottom:20px;
+
+    width:65px;
+
+    height:65px;
+
+    border:none;
+
+    border-radius:50%;
+
+    background:#ff9800;
+
+    color:white;
+
+    font-size:26px;
+
     cursor:pointer;
-    box-shadow:0 10px 25px rgba(0,0,0,.25);
+
+    box-shadow:
+    0 5px 20px rgba(0,0,0,.25);
+
     z-index:999;
 }
 
 .rodape{
-    text-align:center;
-    padding:20px 20px 50px;
+
+    margin:30px 0;
+
     color:#2e7d32;
-    font-size:22px;
-    font-weight:600;
+
+    font-weight:bold;
+
+    text-align:center;
 }
 
 @media(max-width:700px){
 
-    .contador-container h2{
-        font-size:24px;
+    .btn-confirmar{
+
+        width:24%;
+
+        left:28%;
     }
 
-    .time-box{
-        min-width:90px;
-        padding:15px;
+    .btn-nao{
+
+        width:24%;
+
+        left:52%;
     }
 
-    .time-box span{
-        font-size:30px;
-    }
+    .btn-local{
 
-    .music-toggle{
-        width:60px;
-        height:60px;
-        font-size:24px;
+        width:30%;
     }
 
 }
@@ -164,14 +234,50 @@ body{
     <source src="dinossauro.mp3" type="audio/mpeg">
 </audio>
 
-<div class="hero">
-    <img src="convite-ravi.png" alt="Convite Ravi">
-</div>
-
-<div class="contador-container">
+<div class="convite-wrapper">
 
 ```
-<h2>⏳ Falta pouco para a grande aventura!</h2>
+<img
+    src="convite-ravi.png"
+    class="convite-img">
+
+<a
+    class="btn-confirmar"
+    href="https://wa.me/5514988328950?text=Oi!%20Gostaria%20de%20confirmar%20minha%20presen%C3%A7a%20na%20festinha%20de%201%20ano%20do%20Ravi."
+    target="_blank"
+    onclick="soltarConfete()">
+
+    <img
+        src="confirmar-presenca.png">
+</a>
+
+<a
+    class="btn-nao"
+    href="https://wa.me/5514988328950?text=Oi!%20N%C3%A3o%20poderei%20ir%20na%20festinha%20de%201%20ano%20do%20Ravi."
+    target="_blank">
+
+    <img
+        src="nao-posso.png">
+</a>
+
+<a
+    class="btn-local"
+    href="https://maps.app.goo.gl/dQEehoNycLWsa6PdA"
+    target="_blank">
+
+    <img
+        src="localizacao.png">
+</a>
+```
+
+</div>
+
+<div class="contador">
+
+```
+<h2>
+    ⏳ Falta pouco para a aventura!
+</h2>
 
 <div class="countdown">
 
@@ -200,55 +306,14 @@ body{
 
 </div>
 
-<div class="acoes">
-
-```
-<a
-    href="https://wa.me/5514988328950?text=Oi!%20Gostaria%20de%20confirmar%20minha%20presen%C3%A7a%20na%20festinha%20de%201%20ano%20do%20Ravi."
-    target="_blank"
-    onclick="soltarConfete()">
-
-    <img
-        src="confirmar-presenca.png"
-        alt="Confirmar Presença"
-        class="botao-img">
-</a>
-
-<a
-    href="https://wa.me/5514988328950?text=Oi!%20N%C3%A3o%20poderei%20ir%20na%20festinha%20de%201%20ano%20do%20Ravi."
-    target="_blank">
-
-    <img
-        src="nao-posso.png"
-        alt="Não Posso Ir"
-        class="botao-img">
-</a>
-
-<a
-    href="https://maps.app.goo.gl/dQEehoNycLWsa6PdA"
-    target="_blank">
-
-    <img
-        src="localizacao.png"
-        alt="Localização"
-        class="botao-img">
-</a>
-```
-
-</div>
-
 <div class="rodape">
-🦖 Estamos ansiosos para viver essa aventura com você!
+🦖 Esperamos você para celebrar o primeiro aninho do Ravi!
 </div>
 
 <button
- class="music-toggle"
- onclick="toggleMusica()"
- title="Tocar ou Pausar Música">
-
-🎵
-
-</button>
+ class="music-btn"
+ onclick="toggleMusica()">
+🎵 </button>
 
 <script>
 
@@ -285,9 +350,13 @@ function toggleMusica(){
 function soltarConfete(){
 
     confetti({
+
         particleCount:250,
+
         spread:180,
+
         origin:{y:0.7}
+
     });
 
 }
@@ -297,26 +366,23 @@ new Date("2026-07-12T12:30:00");
 
 function atualizar(){
 
-    const agora = new Date();
+    const agora =
+    new Date();
 
-    const diff = festa - agora;
+    const diff =
+    festa - agora;
 
-    const dias =
+    document.getElementById("dias").innerText =
     Math.floor(diff/(1000*60*60*24));
 
-    const horas =
+    document.getElementById("horas").innerText =
     Math.floor((diff/(1000*60*60))%24);
 
-    const minutos =
+    document.getElementById("minutos").innerText =
     Math.floor((diff/(1000*60))%60);
 
-    const segundos =
+    document.getElementById("segundos").innerText =
     Math.floor((diff/1000)%60);
-
-    document.getElementById("dias").innerText = dias;
-    document.getElementById("horas").innerText = horas;
-    document.getElementById("minutos").innerText = minutos;
-    document.getElementById("segundos").innerText = segundos;
 
 }
 
