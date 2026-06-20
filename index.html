@@ -1,359 +1,333 @@
 <!DOCTYPE html>
+
 <html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Ravi - 1 Aninho</title>
+<title>Ravi - 1 Aninho 🦖</title>
 
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.3/dist/confetti.browser.min.js"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&display=swap" rel="stylesheet">
 
-        body {
-            font-family: 'Fredoka', sans-serif;
-            background: linear-gradient(180deg, #7ed6ff 0%, #bff3ff 30%, #d8ffd6 100%);
-            overflow-x: hidden;
-        }
+<script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.3/dist/confetti.browser.min.js"></script>
 
-        .hero {
-            width: 100%;
-            max-width: 900px;
-            margin: auto;
-            padding: 20px;
-        }
+<style>
 
-        .hero img {
-            width: 100%;
-            border-radius: 35px;
-            box-shadow: 0 20px 50px rgba(0,0,0,.25);
-        }
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
 
-        .container {
-            max-width: 900px;
-            margin: auto;
-            padding: 20px;
-        }
+body{
+    font-family:'Fredoka',sans-serif;
+    background:linear-gradient(
+        180deg,
+        #7ed6ff 0%,
+        #bff3ff 30%,
+        #d8ffd6 100%
+    );
+    overflow-x:hidden;
+}
 
-        .card {
-            background: white;
-            border-radius: 30px;
-            padding: 25px;
-            margin-bottom: 25px;
-            box-shadow: 0 10px 30px rgba(0,0,0,.12);
-            text-align: center;
-        }
+.hero{
+    width:100%;
+    max-width:900px;
+    margin:auto;
+    padding:20px;
+}
 
-        .titulo {
-            font-size: 34px;
-            color: #2e7d32;
-            margin-bottom: 15px;
-        }
+.hero img{
+    width:100%;
+    display:block;
+    border-radius:35px;
+    box-shadow:0 20px 50px rgba(0,0,0,.25);
+}
 
-        .subtitulo {
-            font-size: 20px;
-            line-height: 1.7;
-            color: #555;
-        }
+.contador-container{
+    max-width:900px;
+    margin:0 auto 30px auto;
+    padding:0 20px;
+    text-align:center;
+}
 
-        .countdown {
-            display: flex;
-            justify-content: center;
-            gap: 15px;
-            flex-wrap: wrap;
-            margin-top: 20px;
-        }
+.contador-container h2{
+    color:#2e7d32;
+    margin-bottom:20px;
+    font-size:32px;
+}
 
-        .time-box {
-            background: #4caf50;
-            color: white;
-            padding: 15px;
-            border-radius: 20px;
-            min-width: 120px;
-            text-align: center;
-        }
+.countdown{
+    display:flex;
+    justify-content:center;
+    gap:15px;
+    flex-wrap:wrap;
+}
 
-        .time-box span {
-            display: block;
-            font-size: 40px;
-            font-weight: bold;
-        }
+.time-box{
+    background:#4caf50;
+    color:white;
+    padding:18px;
+    border-radius:20px;
+    min-width:120px;
+    box-shadow:0 8px 20px rgba(0,0,0,.15);
+}
 
-        .info-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 15px;
-            margin-top: 20px;
-            margin-bottom: 20px;
-        }
+.time-box span{
+    display:block;
+    font-size:42px;
+    font-weight:bold;
+}
 
-        .info {
-            background: #fff8e1;
-            border: 3px dashed #ffb74d;
-            padding: 20px;
-            border-radius: 20px;
-            text-align: center;
-        }
+.acoes{
+    max-width:900px;
+    margin:0 auto 50px auto;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    gap:25px;
+    padding:0 20px;
+}
 
-        .info h3 {
-            color: #ef6c00;
-            margin-bottom: 10px;
-        }
+.botao-img{
+    width:100%;
+    max-width:500px;
+    cursor:pointer;
+    transition:all .25s ease;
+}
 
-        .info p {
-            font-size: 18px;
-        }
+.botao-img:hover{
+    transform:scale(1.04);
+}
 
-        /* Estilo para os novos botões de imagem */
-        .img-btn {
-            width: 100%;
-            max-width: 250px;
-            cursor: pointer;
-            transition: 0.3s;
-            margin: 10px auto;
-            display: block;
-        }
+.botao-img:active{
+    transform:scale(.98);
+}
 
-        .img-btn:hover {
-            transform: scale(1.05);
-        }
+.music-toggle{
+    position:fixed;
+    bottom:20px;
+    right:20px;
+    width:70px;
+    height:70px;
+    border:none;
+    border-radius:50%;
+    background:#ff9800;
+    color:white;
+    font-size:28px;
+    cursor:pointer;
+    box-shadow:0 10px 25px rgba(0,0,0,.25);
+    z-index:999;
+}
 
-        .btns {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            gap: 20px;
-            margin-top: 15px;
-            flex-wrap: wrap;
-        }
+.rodape{
+    text-align:center;
+    padding:20px 20px 50px;
+    color:#2e7d32;
+    font-size:22px;
+    font-weight:600;
+}
 
-        details {
-            background: #fff8e1;
-            padding: 20px;
-            border-radius: 20px;
-            text-align: left;
-        }
+@media(max-width:700px){
 
-        summary {
-            cursor: pointer;
-            font-size: 22px;
-            font-weight: bold;
-            color: #ef6c00;
-            text-align: center;
-        }
+    .contador-container h2{
+        font-size:24px;
+    }
 
-        .lista {
-            margin-top: 15px;
-            padding-left: 20px;
-            font-size: 20px;
-            line-height: 2;
-        }
+    .time-box{
+        min-width:90px;
+        padding:15px;
+    }
 
-        .rodape {
-            text-align: center;
-            padding: 30px;
-            font-size: 22px;
-            color: #2e7d32;
-            font-weight: bold;
-        }
+    .time-box span{
+        font-size:30px;
+    }
 
-        /* Botão flutuante de música */
-        .btn-musica-flutuante {
-            position: fixed;
-            bottom: 20px;
-            right: 20px;
-            background: #ff9800;
-            color: white;
-            border: none;
-            border-radius: 30px;
-            padding: 12px 20px;
-            font-size: 16px;
-            font-weight: bold;
-            font-family: 'Fredoka', sans-serif;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.3);
-            cursor: pointer;
-            z-index: 1000;
-            transition: 0.3s;
-        }
+    .music-toggle{
+        width:60px;
+        height:60px;
+        font-size:24px;
+    }
 
-        .btn-musica-flutuante:hover {
-            transform: scale(1.05);
-            background: #e68a00;
-        }
+}
 
-        @media(max-width: 700px) {
-            .btns {
-                flex-direction: column;
-            }
-            .titulo {
-                font-size: 28px;
-            }
-            .subtitulo {
-                font-size: 18px;
-            }
-            .time-box {
-                min-width: 90px;
-            }
-            .time-box span {
-                font-size: 30px;
-            }
-            .btn-musica-flutuante {
-                bottom: 15px;
-                right: 15px;
-                padding: 10px 15px;
-                font-size: 14px;
-            }
-        }
-    </style>
+</style>
+
 </head>
 
 <body>
 
-    <audio id="musica" loop autoplay>
-        <source src="dinossauro.mp3" type="audio/mpeg">
-    </audio>
+<audio id="musica" autoplay loop>
+    <source src="dinossauro.mp3" type="audio/mpeg">
+</audio>
 
-    <button id="toggleMusic" class="btn-musica-flutuante" onclick="pausarTocar()">🔊 Pausar Música</button>
+<div class="hero">
+    <img src="convite-ravi.png" alt="Convite Ravi">
+</div>
 
-    <div class="hero">
-        <img src="convite-ravi.png" alt="Convite Ravi">
+<div class="contador-container">
+
+```
+<h2>⏳ Falta pouco para a grande aventura!</h2>
+
+<div class="countdown">
+
+    <div class="time-box">
+        <span id="dias">0</span>
+        Dias
     </div>
 
-    <div class="container">
-
-        <div class="card">
-            <h1 class="titulo">Uma Grande Aventura Começou!</h1>
-            <p class="subtitulo">
-                Há exatamente 1 ano nasceu nosso pequeno explorador.<br><br>
-                Entre risadas, descobertas, brincadeiras e muito amor, o Ravi transformou cada dia em uma aventura inesquecível.<br><br>
-                Agora chegou a hora de celebrar o primeiro capítulo dessa história maravilhosa e você faz parte dela! 💚
-            </p>
-        </div>
-
-        <div class="card">
-            <h2 class="titulo">⏳ Contagem Regressiva</h2>
-            <div class="countdown">
-                <div class="time-box"><span id="dias">0</span>Dias</div>
-                <div class="time-box"><span id="horas">0</span>Horas</div>
-                <div class="time-box"><span id="minutos">0</span>Min</div>
-                <div class="time-box"><span id="segundos">0</span>Seg</div>
-            </div>
-        </div>
-
-        <div class="card">
-            <h2 class="titulo">🎉 Informações da Festa</h2>
-            <div class="info-grid">
-                <div class="info">
-                    <h3>📅 Data</h3>
-                    <p>Domingo<br>12 de Julho</p>
-                </div>
-                <div class="info">
-                    <h3>🕛 Horário</h3>
-                    <p>12:30</p>
-                </div>
-                <div class="info">
-                    <h3>📍 Local</h3>
-                    <p>Rua Francisco Sabatini nº 70</p>
-                </div>
-            </div>
-            
-            <a target="_blank" href="https://maps.app.goo.gl/dQEehoNycLWsa6PdA">
-                <img src="localização.png" alt="Abrir no Google Maps" class="img-btn">
-            </a>
-        </div>
-
-        <div class="card">
-            <h2 class="titulo">🎈 Confirmar Presença</h2>
-            <div class="btns">
-                <a target="_blank" href="https://wa.me/5514988328950?text=Oi!%20Gostaria%20de%20confirmar%20minha%20presen%C3%A7a%20na%20festinha%20de%201%20ano%20do%20Ravi." onclick="soltarConfete()">
-                    <img src="confirmar-presença.png" alt="Sim, eu vou" class="img-btn">
-                </a>
-
-                <a target="_blank" href="https://wa.me/5514988328950?text=Oi!%20N%C3%A3o%20poderei%20ir%20na%20festinha%20de%201%20ano%20do%20Ravi.">
-                    <img src="nao-posso.png" alt="Não poderei ir" class="img-btn">
-                </a>
-            </div>
-        </div>
-
-        <div class="card">
-            <details>
-                <summary>🎁 Sugestão de Presente</summary>
-                <ul class="lista">
-                    <li>Roupa tamanho 2</li>
-                    <li>Sapato tamanho 21</li>
-                </ul>
-            </details>
-        </div>
-
-        <div class="rodape">
-            Esperamos você para viver essa aventura com o Ravi!
-        </div>
-
+    <div class="time-box">
+        <span id="horas">0</span>
+        Horas
     </div>
 
-    <script>
-        // CONTROLE DA MÚSICA E AUTOPLAY
-        const audio = document.getElementById("musica");
-        const btnToggle = document.getElementById("toggleMusic");
+    <div class="time-box">
+        <span id="minutos">0</span>
+        Min
+    </div>
 
-        // Tenta iniciar a música se o navegador permitir, caso não, inicia no primeiro clique do usuário
-        document.body.addEventListener('click', function iniciarAudio() {
-            if (audio.paused) {
-                audio.play();
-                btnToggle.innerText = "🔊 Pausar Música";
-            }
-            document.body.removeEventListener('click', iniciarAudio);
-        }, { once: true });
+    <div class="time-box">
+        <span id="segundos">0</span>
+        Seg
+    </div>
 
-        function pausarTocar() {
-            if (audio.paused) {
-                audio.play();
-                btnToggle.innerText = "🔊 Pausar Música";
-            } else {
-                audio.pause();
-                btnToggle.innerText = "🔇 Tocar Música";
-            }
-        }
+</div>
+```
 
-        // CONTAGEM REGRESSIVA
-        const festa = new Date("2026-07-12T12:30:00");
+</div>
 
-        function atualizar() {
-            const agora = new Date();
-            const diff = festa - agora;
+<div class="acoes">
 
-            const dias = Math.floor(diff / (1000 * 60 * 60 * 24));
-            const horas = Math.floor((diff / (1000 * 60 * 60)) % 24);
-            const minutos = Math.floor((diff / (1000 * 60)) % 60);
-            const segundos = Math.floor((diff / 1000) % 60);
+```
+<a
+    href="https://wa.me/5514988328950?text=Oi!%20Gostaria%20de%20confirmar%20minha%20presen%C3%A7a%20na%20festinha%20de%201%20ano%20do%20Ravi."
+    target="_blank"
+    onclick="soltarConfete()">
 
-            // Evita números negativos se a festa já tiver passado
-            if(diff > 0) {
-                document.getElementById("dias").innerText = dias;
-                document.getElementById("horas").innerText = horas;
-                document.getElementById("minutos").innerText = minutos;
-                document.getElementById("segundos").innerText = segundos;
-            }
-        }
+    <img
+        src="confirmar-presenca.png"
+        alt="Confirmar Presença"
+        class="botao-img">
+</a>
 
-        setInterval(atualizar, 1000);
+<a
+    href="https://wa.me/5514988328950?text=Oi!%20N%C3%A3o%20poderei%20ir%20na%20festinha%20de%201%20ano%20do%20Ravi."
+    target="_blank">
 
-        // EFEITO DE CONFETE (Ao clicar em Confirmar)
-        function soltarConfete() {
-            confetti({
-                particleCount: 250,
-                spread: 180
-            });
-        }
-    </script>
+    <img
+        src="nao-posso.png"
+        alt="Não Posso Ir"
+        class="botao-img">
+</a>
+
+<a
+    href="https://maps.app.goo.gl/dQEehoNycLWsa6PdA"
+    target="_blank">
+
+    <img
+        src="localizacao.png"
+        alt="Localização"
+        class="botao-img">
+</a>
+```
+
+</div>
+
+<div class="rodape">
+🦖 Estamos ansiosos para viver essa aventura com você!
+</div>
+
+<button
+ class="music-toggle"
+ onclick="toggleMusica()"
+ title="Tocar ou Pausar Música">
+
+🎵
+
+</button>
+
+<script>
+
+const musica =
+document.getElementById("musica");
+
+window.addEventListener("load",()=>{
+
+    musica.play()
+    .catch(()=>{
+
+        console.log(
+            "Autoplay bloqueado pelo navegador."
+        );
+
+    });
+
+});
+
+function toggleMusica(){
+
+    if(musica.paused){
+
+        musica.play();
+
+    }else{
+
+        musica.pause();
+
+    }
+
+}
+
+function soltarConfete(){
+
+    confetti({
+        particleCount:250,
+        spread:180,
+        origin:{y:0.7}
+    });
+
+}
+
+const festa =
+new Date("2026-07-12T12:30:00");
+
+function atualizar(){
+
+    const agora = new Date();
+
+    const diff = festa - agora;
+
+    const dias =
+    Math.floor(diff/(1000*60*60*24));
+
+    const horas =
+    Math.floor((diff/(1000*60*60))%24);
+
+    const minutos =
+    Math.floor((diff/(1000*60))%60);
+
+    const segundos =
+    Math.floor((diff/1000)%60);
+
+    document.getElementById("dias").innerText = dias;
+    document.getElementById("horas").innerText = horas;
+    document.getElementById("minutos").innerText = minutos;
+    document.getElementById("segundos").innerText = segundos;
+
+}
+
+atualizar();
+
+setInterval(
+    atualizar,
+    1000
+);
+
+</script>
 
 </body>
 </html>
