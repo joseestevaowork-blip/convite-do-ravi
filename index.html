@@ -1,438 +1,252 @@
 <!DOCTYPE html>
-
 <html lang="pt-BR">
-
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>Ravi - 1 Aninho 🦖</title>
-
-<script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.3/dist/confetti.browser.min.js"></script>
-
-<style>
-
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-}
-
-body{
-    background:linear-gradient(
-        180deg,
-        #8fd3f4 0%,
-        #d6f5d6 100%
-    );
-
-    font-family:Arial, sans-serif;
-
-    min-height:100vh;
-
-    display:flex;
-    flex-direction:column;
-    align-items:center;
-}
-
-.convite-wrapper{
-
-    position:relative;
-
-    width:100%;
-    max-width:700px;
-
-    margin-top:10px;
-}
-
-.convite-img{
-
-    width:100%;
-    display:block;
-
-    border-radius:25px;
-
-    box-shadow:
-    0 15px 40px rgba(0,0,0,.25);
-}
-
-/* BOTÃO CONFIRMAR */
-
-.btn-confirmar{
-
-    position:absolute;
-
-    width:19%;
-
-    left:28%;
-
-    bottom:13.8%;
-}
-
-/* BOTÃO NÃO */
-
-.btn-nao{
-
-    position:absolute;
-
-    width:18%;
-
-    left:52%;
-
-    bottom:13.8%;
-}
-
-/* BOTÃO LOCALIZAÇÃO */
-
-.btn-local{
-
-    position:absolute;
-
-    width:20%;
-
-    left:56%;
-
-    bottom:31%;
-}
-
-.btn-confirmar img,
-.btn-nao img,
-.btn-local img{
-
-    width:100%;
-
-    transition:.25s;
-}
-
-.btn-confirmar:hover img,
-.btn-nao:hover img,
-.btn-local:hover img{
-
-    transform:scale(1.05);
-}
-
-.contador{
-
-    margin-top:12px;
-
-    text-align:center;
-
-    padding:0 15px
-}
-
-.contador h2{
-
-    color:#2e7d32;
-
-    font-size:26px;
-
-    margin-bottom:12px;
-
-    font-weight:700;
-}
-
-.countdown{
-
-    display:flex;
-
-    gap:10px;
-
-    flex-wrap:wrap;
-
-    justify-content:center;
-}
-
-.time-box{
-
-    background:#4caf50;
-
-    color:white;
-
-    border-radius:18px;
-
-    min-width:80px;
-
-    padding:10px 12px;
-
-    box-shadow:
-    0 6px 15px rgba(0,0,0,.12);
-}
-
-.time-box span{
-
-    display:block;
-
-    font-size:28px;
-
-    font-weight:700;
-}
-
-.music-btn{
-
-    position:fixed;
-
-    right:20px;
-
-    bottom:20px;
-
-    width:65px;
-
-    height:65px;
-
-    border:none;
-
-    border-radius:50%;
-
-    background:#ff9800;
-
-    color:white;
-
-    font-size:26px;
-
-    cursor:pointer;
-
-    box-shadow:
-    0 5px 20px rgba(0,0,0,.25);
-
-    z-index:999;
-}
-
-.rodape{
-
-    margin:18px 0 30px 0;
-
-    color:#2e7d32;
-
-    font-size:14px;
-
-    font-weight:500;
-
-    text-align:center;
-
-    opacity:.8;
-}
-
-@media(max-width:700px){
-
-    .contador h2{
-
-    font-size:18px;
-}
-
-.time-box{
-
-    min-width:70px;
-
-    padding:8px;
-}
-
-.time-box span{
-
-    font-size:22px;
-}
-
-.music-btn{
-
-    width:55px;
-
-    height:55px;
-
-    font-size:22px;
-}
-    
-    .btn-confirmar{
-
-        width:24%;
-
-        left:28%;
-    }
-
-    .btn-nao{
-
-        width:24%;
-
-        left:52%;
-    }
-
-    .btn-local{
-
-        width:30%;
-    }
-
-}
-
-</style>
-
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ravi - 1 Aninho 🦖</title>
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.3/dist/confetti.browser.min.js"></script>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: linear-gradient(180deg, #8fd3f4 0%, #d6f5d6 100%);
+            font-family: Arial, sans-serif;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .convite-wrapper {
+            position: relative;
+            width: 95%; /* Garante bom tamanho no mobile */
+            max-width: 550px; /* Evita que fique gigante no PC */
+            margin-top: 15px;
+        }
+
+        .convite-img {
+            width: 100%;
+            display: block;
+            border-radius: 25px;
+            box-shadow: 0 15px 40px rgba(0,0,0,.25);
+        }
+
+        /* BOTÃO CONFIRMAR */
+        .btn-confirmar {
+            position: absolute;
+            width: 19%;
+            left: 28.5%;
+            bottom: 13.9%;
+        }
+
+        /* BOTÃO NÃO */
+        .btn-nao {
+            position: absolute;
+            width: 18%;
+            left: 52.5%;
+            bottom: 13.9%;
+        }
+
+        /* BOTÃO LOCALIZAÇÃO */
+        .btn-local {
+            position: absolute;
+            width: 20%;
+            left: 56.5%;
+            bottom: 31.2%;
+        }
+
+        .btn-confirmar img,
+        .btn-nao img,
+        .btn-local img {
+            width: 100%;
+            transition: .25s;
+        }
+
+        .btn-confirmar:hover img,
+        .btn-nao:hover img,
+        .btn-local:hover img {
+            transform: scale(1.05);
+        }
+
+        .contador {
+            margin-top: 20px;
+            text-align: center;
+            padding: 0 15px;
+        }
+
+        .contador h2 {
+            color: #2e7d32;
+            font-size: 22px;
+            margin-bottom: 12px;
+            font-weight: 700;
+        }
+
+        .countdown {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .time-box {
+            background: #4caf50;
+            color: white;
+            border-radius: 18px;
+            min-width: 75px;
+            padding: 10px 12px;
+            box-shadow: 0 6px 15px rgba(0,0,0,.12);
+            font-size: 14px;
+        }
+
+        .time-box span {
+            display: block;
+            font-size: 24px;
+            font-weight: 700;
+        }
+
+        .music-btn {
+            position: fixed;
+            right: 20px;
+            bottom: 20px;
+            width: 60px;
+            height: 60px;
+            border: none;
+            border-radius: 50%;
+            background: #ff9800;
+            color: white;
+            font-size: 24px;
+            cursor: pointer;
+            box-shadow: 0 5px 20px rgba(0,0,0,.25);
+            z-index: 999;
+        }
+
+        .rodape {
+            margin: 25px 0 35px 0;
+            color: #2e7d32;
+            font-size: 13px;
+            font-weight: 500;
+            text-align: center;
+            opacity: .8;
+            padding: 0 10px;
+        }
+
+        /* AJUSTES ADICIONAIS PARA TELAS PEQUENAS */
+        @media(max-width: 480px) {
+            .convite-wrapper {
+                width: 92%;
+                margin-top: 10px;
+            }
+            .contador h2 {
+                font-size: 18px;
+            }
+            .time-box {
+                min-width: 65px;
+                padding: 8px;
+                font-size: 12px;
+            }
+            .time-box span {
+                font-size: 20px;
+            }
+            /* Mantém o encaixe perfeito dos links por cima da imagem */
+            .btn-confirmar { width: 19%; left: 28.5%; bottom: 13.9%; }
+            .btn-nao { width: 18%; left: 52.5%; bottom: 13.9%; }
+            .btn-local { width: 20%; left: 56.5%; bottom: 31.2%; }
+        }
+    </style>
 </head>
-
 <body>
 
-<div style="height:10px;"></div>
+    <audio id="musica" loop preload="auto">
+        <source src="dinossauro.mp3" type="audio/mpeg">
+    </audio>
 
-<audio id="musica" loop preload="auto">
-    <source src="dinossauro.mp3" type="audio/mpeg">
-</audio>
+    <div class="convite-wrapper">
+        <img src="convite-ravi.png" class="convite-img" alt="Convite do Ravi">
 
-<div class="convite-wrapper">
+        <a class="btn-confirmar" href="https://wa.me/5514988328950?text=Oi!%20Gostaria%20de%20confirmar%20minha%20presen%C3%A7a%20na%20festinha%20de%201%20ano%20do%20Ravi." target="_blank" onclick="soltarConfete()">
+            <img src="confirmar-presenca.png" alt="Confirmar">
+        </a>
 
-<img
-    src="convite-ravi.png"
-    class="convite-img">
+        <a class="btn-nao" href="https://wa.me/5514988328950?text=Oi!%20N%C3%A3o%20poderei%20ir%20na%20festinha%20de%201%20ano%20do%20Ravi." target="_blank">
+            <img src="nao-posso.png" alt="Não posso">
+        </a>
 
-<a
-    class="btn-confirmar"
-    href="https://wa.me/5514988328950?text=Oi!%20Gostaria%20de%20confirmar%20minha%20presen%C3%A7a%20na%20festinha%20de%201%20ano%20do%20Ravi."
-    target="_blank"
-    onclick="soltarConfete()">
-
-    <img
-        src="confirmar-presenca.png">
-</a>
-
-<a
-    class="btn-nao"
-    href="https://wa.me/5514988328950?text=Oi!%20N%C3%A3o%20poderei%20ir%20na%20festinha%20de%201%20ano%20do%20Ravi."
-    target="_blank">
-
-    <img
-        src="nao-posso.png">
-</a>
-
-<a
-    class="btn-local"
-    href="https://maps.app.goo.gl/dQEehoNycLWsa6PdA"
-    target="_blank">
-
-    <img
-        src="localizacao.png">
-</a>
-
-</div>
-
-<div class="contador">
-
-<h2>
-    ⏳ Falta pouco para a aventura!
-</h2>
-
-<div class="countdown">
-
-    <div class="time-box">
-        <span id="dias">0</span>
-        Dias
+        <a class="btn-local" href="https://maps.app.goo.gl/dQEehoNycLWsa6PdA" target="_blank">
+            <img src="localizacao.png" alt="Localização">
+        </a>
     </div>
 
-    <div class="time-box">
-        <span id="horas">0</span>
-        Horas
+    <div class="contador">
+        <h2>⏳ Falta pouco para a aventura!</h2>
+        <div class="countdown">
+            <div class="time-box"><span id="dias">0</span>Dias</div>
+            <div class="time-box"><span id="horas">0</span>Horas</div>
+            <div class="time-box"><span id="minutos">0</span>Min</div>
+            <div class="time-box"><span id="segundos">0</span>Seg</div>
+        </div>
     </div>
 
-    <div class="time-box">
-        <span id="minutos">0</span>
-        Min
+    <div class="rodape">
+        Feito com muito carinho para celebrar o primeiro aninho do Ravi 🦖💚
     </div>
 
-    <div class="time-box">
-        <span id="segundos">0</span>
-        Seg
-    </div>
+    <button class="music-btn" onclick="toggleMusica()" title="Música">🔊</button>
 
-</div>
+    <script>
+        const musica = document.getElementById("musica");
 
-</div>
+        window.addEventListener("load", () => {
+            musica.play().catch(() => {
+                console.log("Autoplay bloqueado pelo navegador.");
+            });
+        });
 
-<div class="rodape">
-Feito com muito carinho para celebrar o primeiro aninho do Ravi 🦖💚
-</div>
+        function toggleMusica() {
+            if (musica.paused) {
+                musica.play();
+                document.querySelector('.music-btn').innerHTML = '🔊';
+            } else {
+                musica.pause();
+                document.querySelector('.music-btn').innerHTML = '🔇';
+            }
+        }
 
-<button
- class="music-btn"
- onclick="toggleMusica()"
- title="Música">
-🔊 </button>
+        function soltarConfete() {
+            confetti({
+                particleCount: 250,
+                spread: 180,
+                origin: { y: 0.7 }
+            });
+        }
 
-<script>
+        // Data da festa (12 de Julho de 2026)
+        const festa = new Date("2026-07-12T12:30:00");
 
-const musica =
-document.getElementById("musica");
+        function atualizar() {
+            const agora = new Date();
+            const diff = festa - agora;
 
-window.addEventListener("load",()=>{
+            if (diff <= 0) {
+                document.getElementById("dias").innerText = "0";
+                document.getElementById("horas").innerText = "0";
+                document.getElementById("minutos").innerText = "0";
+                document.getElementById("segundos").innerText = "0";
+                return;
+            }
 
-    musica.play()
-    .catch(()=>{
+            document.getElementById("dias").innerText = Math.floor(diff / (1000 * 60 * 60 * 24));
+            document.getElementById("horas").innerText = Math.floor((diff / (1000 * 60 * 60)) % 24);
+            document.getElementById("minutos").innerText = Math.floor((diff / (1000 * 60)) % 60);
+            document.getElementById("segundos").innerText = Math.floor((diff / 1000) % 60);
+        }
 
-        console.log(
-            "Autoplay bloqueado pelo navegador."
-        );
-
-    });
-
-});
-
-function toggleMusica(){
-
-    if(musica.paused){
-
-        musica.play();
-
-        document.querySelector('.music-btn').innerHTML = '🔊';
-
-    }else{
-
-        musica.pause();
-        
-        document.querySelector('.music-btn').innerHTML = '🔇';
-
-    }
-
-}
-
-function soltarConfete(){
-
-    confetti({
-
-        particleCount:250,
-
-        spread:180,
-
-        origin:{y:0.7}
-
-    });
-
-}
-
-const festa =
-new Date("2026-07-12T12:30:00");
-
-function atualizar(){
-
-    const agora =
-    new Date();
-
-    const diff =
-    festa - agora;
-
-    document.getElementById("dias").innerText =
-    Math.floor(diff/(1000*60*60*24));
-
-    document.getElementById("horas").innerText =
-    Math.floor((diff/(1000*60*60))%24);
-
-    document.getElementById("minutos").innerText =
-    Math.floor((diff/(1000*60))%60);
-
-    document.getElementById("segundos").innerText =
-    Math.floor((diff/1000)%60);
-
-}
-
-atualizar();
-
-setInterval(
-    atualizar,
-    1000
-);
-
-</script>
-
+        atualizar();
+        setInterval(atualizar, 1000);
+    </script>
 </body>
 </html>
